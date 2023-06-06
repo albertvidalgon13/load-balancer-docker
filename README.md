@@ -18,12 +18,15 @@ EJECUCIÓN:
 IMPLEMENTACIÓN:
 
 docker-compose.yml:
+
     Docker compose simple de un load balancer donde he definido también una network en modo bridge. Defino dos contenedores con la imagen de hello-kubernetes:1.10 las cuales harán el load balancer. También añado los puertos 8080 para acceder al servicio (aunque podrían ser otros).
 
 nginx.conf
+
     Archivo de configuración del nginx que he usado para hacer el load balancer. Definimos el upstream con las dos imagenes que hemos creado en el docker compose. En el apartado de server definimos los certificados que tiene que usar para poder hacer el https y la url. 
     No he definido ninguna regla para http asi que no deja acceder al servicio mediante http://localhost:8080. Tambien esta configurado en default la distribucion de los hosts por lo que se usa round-robin (por orden, una cada vez).
 
 certificados:
+
     He usado la herramienta OpenSSL
 
